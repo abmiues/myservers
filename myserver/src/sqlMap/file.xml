@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="file">
+<typeAlias alias="myfile" type="com.mscreen.bean.MyFile" />
+
+
+	<select id="gettypelist" resultClass="String" parameterClass="String">
+		SELECT filetype FROM files where userid=#userid:VARCHAR# group by filetype
+	</select> 
+	<select id="getfilelist" resultClass="myfile" parameterClass="String">
+		SELECT * FROM files where userid=#userid:VARCHAR#
+	</select> 
+	<insert id="uploadfile" parameterClass="myfile"><!-- 插入设备绑定记录 -->
+			insert into files(MD5,userid,filesize,uploadtime,useable,filetype,filename,filepath)values
+			(#MD5:varchar#,#userid:varchar#,#filesize:varchar#,#uploadtime:varchar#,#useable:varchar#
+			,#filetype:varchar#,#filename:varchar#,#filepath:varchar#)
+	</insert>
+	<select id="downloadfile" resultClass="String" parameterClass="map">
+		SELECT MD5 FROM files where userid=#userid:VARCHAR# and filename=#filename:VARCHAR# and uploadtime=#uploadtime:VARCHAR#
+	</select> 
+	<select id="fileisexist" resultClass="String" parameterClass="String">
+		SELECT MD5 FROM files where MD5=#MD5:VARCHAR#
+	</select> 
+</sqlMap>
+
+
+

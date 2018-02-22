@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="user">
+	<typeAlias alias="User" type="com.mscreen.bean.User" />
+	<typeAlias alias="Equipment" type="com.mscreen.bean.Equipment" />
+
+	<select id="getuser" resultClass="User" parameterClass="String"><!--检查用户是否存在 -->
+		select * from user where userid=#userid:VARCHAR#
+	</select>
+
+	<select id="gethashcode" resultClass="String" parameterClass="String">
+		select hashcode from user_tmp where userid=#userid:VARCHAR#
+	</select>
+
+	<insert id="register" parameterClass="user"><!-- 注册新用户 -->
+		insert into
+		user(userid,pwd,email,name,money,level,pathsize,img,hashcode,usable)values
+		(#userid:VARCHAR#,#pwd:VARCHAR#,#email:VARCHAR#,#name:VARCHAR#,0,1,2,"0",#hashcode:VARCHAR#,"000")
+	</insert>
+	
+	<update id="user_changestate" parameterClass="map"><!-- 修改用户激活状态 -->
+		update user set usable=#usable:varchar# where hashcode=#hashcode:varchar#
+	</update>
+	
+	<select id="user_isExist" resultClass="String" parameterClass="String"><!--检查用户是否存在 -->
+		select usable from user where userid=#userid:VARCHAR#
+	</select>
+	<select id="isExist_hashcode" resultClass="String"
+		parameterClass="String"><!--检查用户是否存在 -->
+		select usable from user where hashcode=#hashcode:VARCHAR#
+	</select>
+	<select id="login" resultClass="String" parameterClass="String"><!-- 验证登陆 -->
+		select pwd from user where userid=#userid:VARCHAR# 
+	</select>
+	<select id="equipment_isExist" resultClass="String"
+		parameterClass="String"><!-- 验证设备是否存在 -->
+		select ip from equipmentlist where equipmentid=#equipmentid:VARCHAR#
+	</select>
+	<select id="checkequipment" resultClass="String" parameterClass="map"><!-- 
+			验证设备密码 -->
+		select equipmentid from equipmentlist where
+		equipmentid=#equipmentid:VARCHAR# and pwd=#pwd:varchar#
+	</select>
+	<insert id="bdequipment" parameterClass="map"><!-- 插入设备绑定记录 -->
+		insert into equipment_bd(userid,equipmentid,equipmentname,ip)values
+		(#userid:varchar#,#equipmentid:varchar#,#equipmentname:varchar#,#ip:varchar#)
+	</insert>
+	<select id="equipment_isbd" resultClass="Equipment"
+		parameterClass="map"><!-- 验证设备是否绑定 -->
+		select * from equipment_bd where equipmentid=#equipmentid:VARCHAR# and
+		userid=#userid:varchar#
+	</select>
+	<select id="getequipment" resultClass="Equipment"
+		parameterClass="String"><!-- 验证设备是否绑定 -->
+		select * from equipment_bd where userid=#userid:varchar#
+	</select>
+	<update id="upequipmentip" parameterClass="map"><!-- 修改ip -->
+		update equipmentlist set ip=#ip:varchar# where
+		equipmentid=#equipmentid:varchar#
+	</update>
+	<update id="upequipmentip1" parameterClass="map"><!-- 修改ip -->
+		update equipment_bd set ip=#ip:varchar# where
+		equipmentid=#equipmentid:varchar#
+	</update>
+	<insert id="addequipment" parameterClass="map"><!-- 插入设备绑定记录 -->
+		insert into equipmentlist(equipmentid,pwd,ip)values
+		(#equipmentid:varchar#,#pwd:varchar#,#ip:varchar#)
+	</insert>
+	<!-- <select id="getequipment_ip" resultClass="String" parameterClass="String"> 
+		验证设备是否绑定 select ip from equipment_bd where equipmentid=#equipmentid:varchar# 
+		</select> -->
+	<!-- <insert id="addnsrsbh" parameterClass="map">绑定的纳税人识别号 insert into fp_bdnsrsbh(userid,nsrsbh,nsrmc,shzt,sqrq)values 
+		(#userid:varchar#,#nsrsbh:varchar#,#nsrmc:varchar#,#shzt:varchar#,#sqrq:datatime#) 
+		</insert> <select id="getuser_nsrsbh" resultClass="User_nsrsbh" parameterClass="String"> 
+		获取用户绑定的税号 select nsrsbh,nsrmc,shzt,sqrq from fp_bdnsrsbh where userid=#userid:varchar# 
+		</select> <select id="user_nsrsbh_exist" resultClass="String" parameterClass="map"> 
+		检查用户与税号是否绑定 select userid from fp_bdnsrsbh where userid=#userid:varchar# 
+		and nsrsbh=#nsrsbh:varchar# </select> <update id="bd_changestate" parameterClass="map">修改审核状态 
+		update fp_bdnsrsbh set shzt=#shzt:varchar#,tgrq=#tgrq:datetime# where userid=#userid:varchar# 
+		and nsrsbh=#nsrsbh:varchar# </update> <select id="bd_checkstate" resultClass="String" 
+		parameterClass="map">查看审核状态 select shzt from fp_bdnsrsbh where userid=#userid:varchar# 
+		and nsrsbh=#nsrsbh:varchar# </select> <update id="user_changestate" parameterClass="map">修改用户审核状态 
+		update fp_User set shzt=#shzt:varchar# where userid=#userid:varchar# </update> 
+		<select id="user_checkstate" resultClass="String" parameterClass="map">查看审核状态 
+		select shzt from fp_User where userid=#userid:varchar# </select> -->
+</sqlMap>
+
+
+

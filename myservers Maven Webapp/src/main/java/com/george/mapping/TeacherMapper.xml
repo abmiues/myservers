@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.george.dao.Teacherdao">
+
+	<resultMap id="teacher" type="com.george.pojo.Teacher">
+		<id column="teacherid" property="teacherid" jdbcType="VARCHAR" />
+		<result column="teachername" property="teachername" jdbcType="VARCHAR" />
+		<result column="pwd" property="pwd" jdbcType="VARCHAR" />
+		<result column="schoolid" property="schoolid" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="course" type="com.george.pojo.Course">
+		<id column="courseid" property="courseid" jdbcType="INTEGER" />
+		<result column="coursename" property="coursename" jdbcType="VARCHAR" />
+		<result column="teacherid" property="teacherid" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="classes" type="com.george.pojo.Classes">
+		<id column="classesid" property="classesid" jdbcType="INTEGER" />
+		<result column="courseid" property="courseid" jdbcType="INTEGER" />
+		<result column="teacher" property="teacher" jdbcType="VARCHAR" />
+		<result column="time" property="time" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="layout" property="layout" jdbcType="VARCHAR" />
+		<result column="path" property="path" jdbcType="VARCHAR" />
+		<result column="classesname" property="classesname" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="site" type="com.george.pojo.Site">
+		<id column="stuid" property="stuid" jdbcType="VARCHAR" />
+		<id column="classesid" property="classesid" jdbcType="INTEGER" />
+		<id column="week" property="week" jdbcType="VARCHAR" />
+		<result column="layout" property="layout" jdbcType="VARCHAR" />
+		<result column="stuname" property="stuname" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="answers" type="com.george.pojo.Answers">
+		<id column="questionid" property="questionid" jdbcType="INTEGER" />
+		<id column="stuid" property="stuid" jdbcType="VARCHAR" />
+		<result column="stuname" property="stuname" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<select id="teacher_login" resultType="String" parameterType="java.util.Map">
+		SELECT pwd FROM teacher where teacherid=#{teacherid,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="teacher_registerdao" parameterType="com.george.pojo.Teacher">
+		insert into
+		teacher (teacherid, teachername, pwd, schoolid,email)
+		values
+		(#{teacherid,jdbcType=VARCHAR},
+		#{teachername,jdbcType=VARCHAR},
+		#{pwd,jdbcType=VARCHAR},
+		#{schoolid,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR})
+	</insert>
+
+	<select id="teacher_getcourse" resultMap="course" parameterType="String">
+		SELECT * FROM course where teacherid=#{teacherid,jdbcType=VARCHAR}
+	</select>
+
+	<select id="teacher_getclasses" resultMap="classes"
+		parameterType="String">
+		SELECT * FROM classes where courseid in (select courseid
+		from course where
+		teacherid=#{teacherid,jdbcType=VARCHAR})
+	</select>
+
+	<insert id="addcourse" parameterType="com.george.pojo.Course"
+		useGeneratedKeys="true" keyProperty="courseid">
+		insert into course (teacherid,
+		coursename)values(#{teacherid,jdbcType=VARCHAR},#{coursename,jdbcType=VARCHAR})
+	</insert>
+
+	<insert id="addclass" parameterType="com.george.pojo.Classes"
+		useGeneratedKeys="true" keyProperty="classesid">
+		insert into teacher (courseid,
+		teacher,time,address,layout,path,
+		classesname)
+		values
+		(#{courseid,jdbcType=INTEGER}, #{teacher,jdbcType=VARCHAR},
+		#{time,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR}
+		#{layout,jdbcType=VARCHAR},#{path,jdbcType=VARCHAR},
+		#{classname,jdbcType=VARCHAR})
+	</insert>
+
+	<select id="getsitemap" resultMap="site" parameterType="INTEGER">
+		SELECT *
+		FROM site where
+		classesid=#{classesid,jdbcType=INTEGER}
+	</select>
+
+	<insert id="addquestion" parameterType="com.george.pojo.Questions"
+		useGeneratedKeys="true" keyProperty="questionid">
+		insert into questions
+		(title,content,classesid,week)
+		values
+		(#{title,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{classesid,jdbcType=INTEGER},#{week,jdbcType=VARCHAR})
+	</insert>
+
+	<select id="getanswers" resultMap="answers" parameterType="INTEGER">
+		SELECT *
+		FROM answers where
+		questionid=#{questionid,jdbcType=INTEGER}
+	</select>
+	<!--
+
+	<select id="getquestions" resultMap="questions"
+		parameterType="Map">
+		select * from questions where
+		classesid=#{classesid,jdbcType=INTEGER} and
+		week=#{week,jdbcType=VARCHAR} 
+	</select>
+	--><!--<select id="getclasses_bycourseid" resultMap="classes" parameterType="INTEGER"> 
+		SELECT * FROM classes where courseid=#{courseid,jdbcType=INTEGER} </select>根据课程号查找课时，暂时无用 -->
+</mapper>

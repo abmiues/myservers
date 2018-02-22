@@ -1,0 +1,101 @@
+use msserver;
+drop table if exists `school`;
+create table `school`(
+`schoolid` varchar(20) ,
+`schoolname` varchar(20),
+primary key(`schoolid`));
+
+drop table if exists`student`;
+create table `student`(
+`stuid` varchar(20) ,
+`stuname` varchar(20),
+`schoolid` varchar(20),
+`pwd` varchar(20),
+`email` varchar(50),
+primary key(`stuid`) );
+
+drop table if exists`teacher`;
+create table `teacher`(
+`teacherid` varchar (20) ,
+`teachername` varchar(20),
+`schoolid` varchar(20),
+`pwd` varchar(20),
+`email` varchar(50),
+primary key(`teacherid`) );
+
+drop table if exists `course`;
+create table `course`(
+`courseid` int(20) auto_increment,
+`teacherid` varchar(20),
+`coursename` varchar(50),
+`startweek` varchar(3),
+`endweek` varchar(3),
+primary key(`courseid`)
+); 
+
+drop table if exists `classes`;
+CREATE TABLE `classes`(
+`classesid` int(20) auto_increment,
+`courseid` varchar(20) ,
+`teacher` varchar(50),
+`time` varchar(50),
+`address` varchar(50),
+`layout` varchar(10),
+`path` varchar(10),
+`classesname` varchar(20),
+primary key(`classesid`));
+
+
+
+drop table if exists `course_stu`;
+create table `course_stu`(
+`id` int(20) auto_increment,
+`courseid` varchar(20),
+`stuid` varchar(20),
+
+primary key(`id`)
+);
+
+drop table if exists `inform`;
+create table `inform`(
+`id` int(20)auto_increment,
+`publisher` varchar(20),
+`title` varchar(20),
+`time` varchar(20),
+`courseid` varchar(20),
+`content` varchar(500),
+primary key(`id`)
+);
+
+drop table if exists `site`;
+create table site(
+`stuid` varchar(20),
+`stuname` varchar(20),
+`classesid` int,
+`layout` varchar(10),
+`week` varchar(3),
+primary key(`stuid`,`week`,`classedid`)
+);
+
+drop table if exists `answers`;
+create table `answers`(
+`stuid` varchar(20),
+`stuname` varchar(20),
+`content` varchar(512),
+`questionid` int,
+primary key(`stuid`,`questionid`)
+);
+drop table if exists `questions`;
+create table  `questions`(
+`questionid` int auto_increment,
+`content` varchar(512),
+`classesid` int ,
+`week` varchar(3),
+primary key(`questionid`)
+)
+
+drop table if exists `user_t`;
+
+
+
+

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginAction</servlet-name>
+    <servlet-class>com.Myweb.Servlet.LoginAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserNameCheck</servlet-name>
+    <servlet-class>com.Myweb.Servlet.UserNameCheck</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ResServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.ResServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ResAction</servlet-name>
+    <servlet-class>com.Myweb.Servlet.ResAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TypeServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.TypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Test</servlet-name>
+    <servlet-class>com.Myweb.Servlet.Test</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteFileServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.DeleteFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DownServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.DownServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DownAction</servlet-name>
+    <servlet-class>com.Myweb.Servlet.DownAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MyFileServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.MyFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadAction</servlet-name>
+    <servlet-class>com.Myweb.Servlet.UploadAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpFileServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.UpFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FileTypeServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.FileTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FileQuery</servlet-name>
+    <servlet-class>com.Myweb.Servlet.FileQuery</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TjlbAction</servlet-name>
+    <servlet-class>com.Myweb.Servlet.TjlbAction</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Reszpass</servlet-name>
+    <servlet-class>com.Myweb.Servlet.Reszpass</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.Myweb.Servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/UploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginAction</servlet-name>
+    <url-pattern>/LoginAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserNameCheck</servlet-name>
+    <url-pattern>/UserNameCheck</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ResServlet</servlet-name>
+    <url-pattern>/ResServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ResAction</servlet-name>
+    <url-pattern>/ResAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TypeServlet</servlet-name>
+    <url-pattern>/TypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Test</servlet-name>
+    <url-pattern>/Test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteFileServlet</servlet-name>
+    <url-pattern>/DeleteFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownServlet</servlet-name>
+    <url-pattern>/DownServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownAction</servlet-name>
+    <url-pattern>/DownAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MyFileServlet</servlet-name>
+    <url-pattern>/MyFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadAction</servlet-name>
+    <url-pattern>/UploadAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpFileServlet</servlet-name>
+    <url-pattern>/UpFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileTypeServlet</servlet-name>
+    <url-pattern>/FileTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileQuery</servlet-name>
+    <url-pattern>/FileQuery</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TjlbAction</servlet-name>
+    <url-pattern>/TjlbAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Reszpass</servlet-name>
+    <url-pattern>/Reszpass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

@@ -1,0 +1,56 @@
+
+CREATE TABLE `equipment_bd` (
+  `equipmentid` varchar(45) NOT NULL,
+  `userid` varchar(45) NOT NULL,
+  `lastcontime` varchar(45) DEFAULT NULL,
+  `equipmentname` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`equipmentid`,`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `equipmentlist` (
+  `equipmentid` int(11) NOT NULL,
+  `pwd` varchar(45) DEFAULT NULL,
+  `ip` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`equipmentid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `files` (
+  `MD5` varchar(45) NOT NULL,
+  `userid` varchar(45) NOT NULL,
+  `filesize` varchar(45) DEFAULT NULL,
+  `uploadtime` varchar(45) DEFAULT NULL,
+  `useable` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `filename` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`MD5`,`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `friends` (
+  `userid` varchar(45) NOT NULL,
+  `friendid` varchar(45) NOT NULL,
+  PRIMARY KEY (`userid`,`friendid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `history` (
+  `MD5` varchar(45) NOT NULL,
+  `sendid` varchar(45) NOT NULL,
+  `recid` varchar(45) NOT NULL,
+  `sendtime` varchar(45) DEFAULT NULL,
+  `filesize` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`MD5`,`sendid`,`recid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `user` (
+  `userid` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `pwd` varchar(45) NOT NULL,
+  `ip` varchar(45) DEFAULT NULL,
+  `money` varchar(45) DEFAULT NULL,
+  `level` varchar(45) DEFAULT NULL,
+  `pathsize` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+

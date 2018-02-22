@@ -1,0 +1,4 @@
+#Fri Apr 01 10:05:36 CST 2016
+eclipse.preferences.version=1
+validator.Checked=WebRoot/bt/js/jquery-1.11.3.min.js,WebRoot/bt/js/jquery.min.js,WebRoot/WEB-INF/springmvc-servlet.xml,src/SqlMapConfig.xml,WebRoot/js/jquery-1.11.2.min.js
+validator.Unchecked=
